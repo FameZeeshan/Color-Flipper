@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Flipper</title>
+    <style>
+      body {
+        height: 100vh;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        font-size: 30px;
+        color: #e31a1a;
+      }
+      ul {
+        display: flex;
+        list-style-type: none;
+      }
+      a {
+        text-decoration: none;
+        padding: 10px;
+      }
+      .color {
+        text-align: center;
+        font-size: 30px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .main-container {
+        display: flex;
+        justify-content: space-around;
+        background-color: #94bbe9;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn {
+        background-color: #f10707;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Color Flipper</h1>
+      <ul>
+        <li class="li"><a href="./index.html">Simple</a></li>
+        <li class="li"><a href="./hex.html">Hex</a></li>
+      </ul>
+    </div>
+
+    <div class="color" id="color">
+      Click the button to pick a color from the list.
+    </div>
+    <div class="container">
+      <button class="btn" id="btn1">Pick Color</button>
+    </div>
+
+    <script>
+      const colorList = [
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "Violet",
+        "Sky Blue",
+        "Black",
+        "White",
+      ];
+
+      function getRandomColor() {
+        const randomIndex = Math.floor(Math.random() * colorList.length);
+        return colorList[randomIndex];
+      }
+
+      const colorText1 = document.getElementById("color");
+      const btn1 = document.getElementById("btn1");
+
+      function pickColor() {
+        const pickedColor = getRandomColor();
+        document.body.style.backgroundColor = pickedColor;
+        colorText1.textContent = `Random Simple color is: ${pickedColor}`;
+      }
+
+      btn1.addEventListener("click", pickColor);
+    </script>
+  </body>
+</html>
